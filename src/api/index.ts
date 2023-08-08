@@ -28,3 +28,5 @@ router.use('/periods', periodRouter)
 app.listen(config.port, () => {
   console.log(`⛈ [Server]: Server is runnin at http://localhost:${config.port}`)
 })
+
+export default app

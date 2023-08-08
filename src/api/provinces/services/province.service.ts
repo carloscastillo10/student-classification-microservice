@@ -7,17 +7,26 @@ export class ProvinceService {
 
   async list(): Promise<Province[] | undefined> {
     try {
-      const provinces = await ProvinceModel.find<Province>({})
+      const provinces = await ProvinceModel.find<Province>({}).sort({ name: 1 })
       return provinces
     } catch (error) {
       console.log(error)
     }
   }
 
-  async listCantons(id: string): Promise<Canton[] | undefined> {
+  async listCantons(): Promise<Canton[] | undefined> {
+    try {
+      const cantons = await CantonModel.find<Canton>({}).sort({ name: 1 })
+      return cantons
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async listCantonsByProvince(id: string): Promise<Canton[] | undefined> {
     try {
       const province = parseInt(id)
-      const cantons = await CantonModel.find<Canton>({ provinceId: province })
+      const cantons = await CantonModel.find<Canton>({ provinceId: province }).sort({ name: 1 })
       return cantons
     } catch (error) {
       console.log(error)

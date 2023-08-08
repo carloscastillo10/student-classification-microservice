@@ -2,7 +2,7 @@
   "name": "student-classification-microservice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/api/index.js",
   "scripts": {
     "build": "babel src --extensions \".ts,.js\" --out-dir dist --copy-files",
     "start": "node dist/api/index.js",

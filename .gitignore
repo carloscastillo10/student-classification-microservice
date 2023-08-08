@@ -187,6 +187,7 @@ dist
 .svelte-kit
 
 ### VisualStudioCode ###
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -232,7 +233,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # Vscode settings
-.vscode/
+
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,macos,linux,node,visualstudiocode
 .vercel

@@ -19,8 +19,21 @@ const list = async (req: Request, res: Response, next: NextFunction) => {
 
 const listCantons = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    const cantons = await service.listCantons()
+    res.json({
+      message: 'Success',
+      statusCode: 200,
+      data: cantons,
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
+const listCantonsByProvince = async (req: Request, res: Response, next: NextFunction) => {
+  try {
     const { id } = req.params
-    const cantons = await service.listCantons(id)
+    const cantons = await service.listCantonsByProvince(id)
     res.json({
       message: 'Success',
       statusCode: 200,
@@ -32,6 +45,7 @@ const listCantons = async (req: Request, res: Response, next: NextFunction) => {
 }
 
 router.get('/', list)
-router.get('/:id/cantons', listCantons)
+router.get('/cantons', listCantons)
+router.get('/:id/cantons', listCantonsByProvince)
 
 export default router
